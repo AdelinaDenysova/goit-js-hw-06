@@ -32,8 +32,8 @@ const createBoxes = (amount) => {
     box.style.marginBottom = '10px';
     box.style.backgroundColor = getRandomHexColor();
     boxes.append(box);
-    return;
   };
+  return;
 };
 
 createBtn.addEventListener("click", () => {
