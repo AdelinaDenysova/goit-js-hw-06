@@ -1,4 +1,3 @@
-const widget = document.querySelector('.widget');
 const color = document.querySelector('.color');
 const button = document.querySelector('.change-color');
 const body = document.querySelector('body');
