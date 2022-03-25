@@ -1,6 +1,7 @@
 const widget = document.querySelector('.widget');
 const color = document.querySelector('.color');
 const button = document.querySelector('.change-color');
+const body = document.querySelector('body');
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -11,9 +12,7 @@ function getRandomHexColor() {
 function changeColor() {
   const backgroundColor = getRandomHexColor();
   color.textContent = backgroundColor;
-  widget.style.backgroundColor = backgroundColor;
+  body.style.backgroundColor = backgroundColor;
 }
-
-changeColor();
 
 button.addEventListener('click', changeColor);

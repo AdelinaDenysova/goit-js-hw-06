@@ -4,8 +4,7 @@ const getRandomHexColor = () => {
     .padStart(6, 0)}`;
 };
 
-const controls = document.querySelector('#controls');
-const numberInput = controls.querySelector('input');
+const numberInput = document.querySelector('input');
 const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
 const boxes = document.querySelector('#boxes');
@@ -16,13 +15,13 @@ boxes.style.marginTop = '30px';
 
 let number = 0;
 
-numberInput.addEventListener("input", (event) => {
-  return number = event.currentTarget.value;
+numberInput.addEventListener("input", () => {
+  number = numberInput.value;
 });
 
-let boxSize = 20;
-
 const createBoxes = (amount) => {
+  let boxSize = 20;
+  const elements = [];
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement("div");
     boxSize += 10;
@@ -31,21 +30,18 @@ const createBoxes = (amount) => {
     box.style.marginRight = '10px';
     box.style.marginBottom = '10px';
     box.style.backgroundColor = getRandomHexColor();
-    boxes.append(box);
+    elements.push(box);
   };
-  return;
+  boxes.append(...elements);
 };
 
 createBtn.addEventListener("click", () => {
   createBoxes(number);
   createBtn.disabled = true;
-  return;
+  numberInput.value = '';
 });
 
 destroyBtn.addEventListener("click", () => {
   boxes.innerHTML = "";
-  numberInput.value = "";
   createBtn.disabled = false;
-  boxSize = 20;
-  return;
 });
